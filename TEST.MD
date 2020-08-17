@@ -1,10 +1,16 @@
 # Programming Test
 
 Given the following input array of people, please complete task 1 - 3. You should use functional programming and JavaScript and preferably a TDD approach to complete the tasks. Feel free to use lodash, ramda or underscore.
-Tests can be written using the mocha and chai. 
+Tests can be written using mocha, chai or jest.
 
-An individual link will be sent you to a CoderPen.io session. Once you've completed the tasks simply close the window and let me know that you're done.
+Nice-To-Have's:
+- Linting
+- Standard Commit Message
+- Fork this repo and make a PR to master, then add me as a reviewer
+- Tests
+- Maybe you have some other fancy ideas? 🙃
 
+Please share your results via GitHub.
 
 ```
 const people = [
@@ -29,7 +35,7 @@ const people = [
 ];
 ```
 
-### 1. Add "My name is: " to all people entities.
+### 1. Add `My name is: ` to all people entities.
 
 Example: 
 
@@ -60,4 +66,4 @@ For Louis the result would be:
 }
 ```
 
-### 3. Write tests for the each function that you've written
+### 3. Write tests for each function that you've written
