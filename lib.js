@@ -14,7 +14,14 @@ function serializePeople( obj, accumulator = [] ) {
 function buildPeople( currVal, acc = null ) {
   return acc ? {
     name: currVal,
-    children: [ acc ]
+    children: [acc]
+  } : { name: currVal }
+}
+
+function buildPeopleWithParent( currVal, acc = null ) {
+  return acc ? {
+    name: currVal,
+    children: [Object.assign({}, { parentName: currVal }, acc)]
   } : { name: currVal }
 }
 
@@ -30,10 +37,19 @@ const task = pipe(
   Array,
 )
 
+const task2 = pipe(
+  pickFistItem,
+  serializePeople,
+  reduceRight(buildPeopleWithParent, null),
+  Array,
+)
+
 module.exports = {
   renameItem,
   pickFistItem,
   serializePeople,
   buildPeople,
+  buildPeopleWithParent,
   task,
+  task2
 }

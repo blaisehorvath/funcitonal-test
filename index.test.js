@@ -1,4 +1,10 @@
-const { renameItem, pickFistItem, buildPeople, serializePeople } = require('./lib');
+const {
+  renameItem,
+  pickFistItem,
+  buildPeople,
+  buildPeopleWithParent,
+  serializePeople,
+} = require('./lib');
 
 describe(
   "renameItem", () => {
@@ -23,6 +29,22 @@ describe("buildPeople", () => {
       ]
     }
     const received = buildPeople("root", { name: "leaf" })
+    expect(received).toMatchObject(expected)
+  })
+})
+
+describe("buildPeopleWithParent", () => {
+  test('creates a recursive people object from a leaf and a people leaf object', () => {
+    const expected = {
+      name: "root",
+      children: [
+        {
+          parentName: "root",
+          name: "leaf"
+        }
+      ]
+    }
+    const received = buildPeopleWithParent("root", { name: "leaf" })
     expect(received).toMatchObject(expected)
   })
 })
